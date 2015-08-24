@@ -1,0 +1,45 @@
+<style type="text/css">
+  /* setup the page using DocRaptor-specific settings */
+  @page {
+    size: US-Letter;
+    background: #fffff1;
+  }
+
+  body {
+    font-family: sans-serif;
+    color: #333333;
+    margin: 1em auto 0;
+    width: 40em;
+  }
+
+  th {
+    font-weight: bold;
+  }
+
+  tr:nth-child(2n) {
+    background-color: #eeeeee;
+  }
+
+  tr td:first-of-type {
+    text-align: right;
+  }
+
+  tr td:first-of-type, tr th:first-of-type {
+    padding-right: 1em;
+  }
+
+  /* DocRaptor uses print styles by default - hide the download link in the PDF */
+  @media print {
+    .no-print {
+      display: none;
+    }
+
+    tr:nth-child(2n) {
+      background-color: inherit;
+    }
+  }
+</style>
+
+
+
+<%= link_to "Download Report", printables_path(:format => :pdf), :class => "no-print" %>
